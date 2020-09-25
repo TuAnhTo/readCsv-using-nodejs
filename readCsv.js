@@ -48,11 +48,11 @@ fs.createReadStream('provinces.csv', 'utf8')
 
             // let query = 'INSERT INTO provinces (id, name_translation, name_original, parent_id, level, country_code, zipcode, lat, lng) VALUES ?';
             provinces.push(province);
-            //
-            // connection.query(query, [provinces], function (err, result) {
-            //     if (err) throw err;
-            //     console.log("thanh cong");
-            // })
+            
+            connection.query(query, [provinces], function (err, result) {
+                if (err) throw err;
+                console.log("thanh cong");
+            })
     })
     .on('end', function () {
         console.table(provinces);
